@@ -38,3 +38,32 @@ function alphabetPosition2(text) {
     return str.join(" ");
 }
 console.log(alphabetPosition2("The sunset sets at twelve o' clock."));
+
+// 2. Disemvowel Trolls - codewars - 7kyu
+/* 
+Trolls are attacking your comment section!
+
+A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
+
+Your task is to write a function that takes a string and return a new string with all vowels removed.
+
+For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
+
+Note: for this kata y isn't considered a vowel.
+ */
+function disemvowel(str) {
+    const vowels = "A, E, I, O, U".split(", ");
+    for (let vow of vowels) {
+        str = str.replaceAll(vow, "");
+        str = str.replaceAll(vow.toLowerCase(), "");
+    }
+    return str;
+}
+function disemvowel2(str) {
+    let vowelsRegex = /aueoi/gi;
+
+    return str.replace(/[aueoi]/gi, "");
+}
+
+console.log(disemvowel("This website is for losers LOL!"));
+console.log(disemvowel2("This website is for losers LOL!"));
