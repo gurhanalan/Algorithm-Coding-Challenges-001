@@ -1,10 +1,10 @@
 "use strict";
 
-// 1. Replace With Alphabet Position - codewars - 6kyu
+// 11. Replace With Alphabet Position
 /* 
 Welcome.
 
-In this kata you are required to, given a string, replace every letter with its position in the alphabet.
+In this challenge you are required to, given a string, replace every letter with its position in the alphabet.
 
 If anything in the text isn't a letter, ignore it and don't return it.
 
@@ -39,7 +39,7 @@ function alphabetPosition2(text) {
 }
 console.log(alphabetPosition2("The sunset sets at twelve o' clock."));
 
-// 2. Disemvowel Trolls - codewars - 7kyu
+// 12. Disemvowel Trolls
 /* 
 Trolls are attacking your comment section!
 
@@ -69,7 +69,7 @@ console.log(disemvowel("This website is for losers LOL!"));
 console.log(disemvowel2("This website is for losers LOL!"));
 
 // ##############################################################################
-// 3. Who likes it? - codewars - 6kyu
+// 13. Who likes it?
 /* 
 You probably know the "like" system from Facebook and other pages. People can "like" blog posts, pictures or other items. We want to create the text that should be displayed next to such an item.
 
@@ -102,7 +102,7 @@ function likes(names) {
 console.log(likes([]));
 
 // #######################################################################################
-// 4. You're a square! - codewars - 7kyu
+// 14. You're a square!
 /* A square of squares
 You like building blocks. You especially like building blocks that are squares. And what you even like more, is to arrange them into a square of square building blocks!
 
