@@ -165,3 +165,39 @@ function squareDigits(num) {
 }
 
 console.log(squareDigits(42));
+
+// 17. Fast Fibonacci
+/* The generic implementation of the fibonacci algorithm is usually something like the following
+
+function fib(num) {
+  if (num < 2) return num;
+  return fib(num - 1) + fib(num - 2);
+}
+Now thats all and well and good but that function isn't too efficient. If I wanted to get the 1000th number in the series, I'd have to wait... days? maybe years?
+
+Your task
+Write a more efficient fibonacci function that can calculate the 1000th+ number series without breaking a sweat. Read up on tail call optimization for some help.
+
+Starting values
+fib(0) = 0;
+fib(1) = 1; */
+
+function fib(num) {
+    let current = 0;
+    const arr = [];
+    for (let i = 0; i < num + 1; i++) {
+        arr.push(current);
+        current = (arr[arr.length - 1] || 1) + (arr[arr.length - 2] || 0);
+    }
+    return arr[num];
+}
+
+//Answer with a tail call
+
+function fib2(num, current = 0, next = 1) {
+    if (num === 0) return current;
+    return fib2(--num, next, next + current);
+}
+
+// console.log(fib(5));
+// console.log(fib2(5));
