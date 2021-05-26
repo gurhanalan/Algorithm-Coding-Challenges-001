@@ -252,3 +252,42 @@ function validAnagram2(str1, str2) {
 
 console.log(validAnagram2("rat", "tar")); //true
 console.log(validAnagram2("anagrram", "nagamarg")); //true
+
+////////////////////////////
+// 19. countUniqueValues
+/* Implement a function called countUniqueValues, which accepts a sorted array, and counts the unique values in the array. There can be negative numbers in the array, but it will always be sorted. */
+
+/* countUniqueValues([1,1,1,1,1,2]) // 2
+countUniqueValues([1,2,3,4,4,4,7,7,12,12,13]) // 7
+countUniqueValues([]) // 0
+countUniqueValues([-2,-1,-1,0,1]) // 4 */
+
+// This is a solution for unsorted arrays as well.
+// This has O(2n) TC, O(n) SC
+function countUniqueValues(arr) {
+    const arrObj = {};
+
+    for (let num of arr) {
+        arrObj[num] = (arrObj[num] || 0) + 1;
+    }
+    return Object.keys(arrObj).length;
+}
+
+console.log(countUniqueValues([1, 2, 3, 4, 4, 4, 7, 7, 12, 12, 13]));
+
+// Using pointers for sorted arrays
+// This has O(n) TC, O(1) SC
+function countUniqueValues2(arr) {
+    let counter = 0;
+    let uniqueNum;
+    for (let num of arr) {
+        if (num !== uniqueNum) {
+            counter++;
+            uniqueNum = num;
+        }
+    }
+    return counter;
+}
+
+console.log(countUniqueValues2([1, 2, 3, 4, 4, 4, 7, 7, 12, 12, 13]));
+console.log(countUniqueValues2([]));
