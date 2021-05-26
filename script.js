@@ -201,3 +201,54 @@ function fib2(num, current = 0, next = 1) {
 
 // console.log(fib(5));
 // console.log(fib2(5));
+
+// ////////////////////////////
+// 18. Frequency Counter - validAnagram
+
+/* Given two strings, write a function to determine if the second string is an anagram of the first. An anagram is a word, phrase, or name formed by rearranging the letters of another, such as cinema formed from iceman
+Time Complexity O(n).
+*/
+
+// This has Time Complexity of O(3n) => O(n)
+// This has Space Complexity of O(2n) => O(n)
+function validAnagram(str1, str2) {
+    if (str1.length !== str2.length) return false;
+    const str1Obj = {};
+    const str2Obj = {};
+
+    for (let char of str1) {
+        str1Obj[char] = (str1Obj[char] || 0) + 1;
+    }
+    for (let char of str2) {
+        str2Obj[char] = (str2Obj[char] || 0) + 1;
+    }
+
+    for (let key in str1Obj) {
+        if (str1Obj[key] !== str2Obj[key]) return false;
+    }
+
+    return true;
+}
+
+// A better way :
+// This has Time Complexity of O(2n) => O(n)
+// This has Space Complexity of O(n) => O(n)
+function validAnagram2(str1, str2) {
+    if (str1.length !== str2.length) return false;
+    const str1Obj = {};
+
+    for (let char of str1) {
+        str1Obj[char] = (str1Obj[char] || 0) + 1;
+    }
+    for (let char of str2) {
+        if (!str1Obj[char]) return false;
+        else {
+            str1Obj[char] -= 1;
+        }
+    }
+
+    return true;
+}
+
+console.log(validAnagram2("rat", "tar")); //true
+console.log(validAnagram2("anagrram", "nagamarg")); //true
